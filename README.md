@@ -66,6 +66,13 @@ This repository contains the code to replicate the paper, "Many LLMs are More Ut
 3. Analysis:
    - Open and run the R Markdown files in the `notebooks/` directory
 
+## Reproduce
+   ```bash
+  bash src/run.sh gemma3:27b 1 oxford_utilitarianism_scale 1
+  bash src/run.sh gemma3:27b 2 oxford_utilitarianism_scale 2
+  bash src/run.sh gemma3:27b 3 oxford_utilitarianism_scale 3
+  ```
+
 ## How to Cite
 If you use this code or data, please cite our paper:
 ```
