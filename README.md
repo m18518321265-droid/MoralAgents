@@ -25,9 +25,25 @@ This repository contains the code to replicate the paper, "Many LLMs are More Ut
 1. Clone the repository
 2. Install dependencies:
    ```bash
+   conda create -n moralgents python=3.12
+   conda activate moralgents
    pip install -r requirements.txt
    ```
-
+3. Install ollama without sudo:
+   ```bash
+    curl -L https://github.com/ollama/ollama/releases/download/v0.17.4/ollama-linux-amd64.tar.zst  -o ollama-linux-amd64.tar.zst
+    tar --zstd -xvf ollama-linux-amd64.tar.zst -C ~/.local
+    vim ~/.bashrc #add line: export PATH="$HOME/.local/bin:$PATH"
+    source ~/.bashrc
+   ```
+   If you have sudo access:
+    ```shell
+    curl -fsSL https://ollama.com/install.sh | sh
+    ```
+   Verify Installation
+    ```shell
+    ollama --version
+    ```
 ## Usage
 
 1. Data Collection and Experimentation:

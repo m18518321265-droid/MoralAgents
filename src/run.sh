@@ -81,9 +81,9 @@ fi
 export PATH=$HOME/.local/bin:$PATH && export LD_LIBRARY_PATH=$HOME/.local/lib/ollama:$LD_LIBRARY_PATH && ollama --version
 
 # Enable multi-GPU usage
-# export OLLAMA_NUM_PARALLEL=2
-# export CUDA_VISIBLE_DEVICES=0,1
-# export OLLAMA_GPU_OVERHEAD=0.5 
+ export OLLAMA_NUM_PARALLEL=8
+ export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+ export OLLAMA_GPU_OVERHEAD=0.5
 
 export OLLAMA_HOST="127.0.0.1:$PORT"
 export OLLAMA_CONTEXT_LENGTH=$n_ctx
@@ -95,5 +95,5 @@ ollama pull $model_name
 echo "$(ollama ps)" 
 
 mkdir -p $save_dir
-echo python main.py $dataset $model_name $num_attempts $temperature $save_dir $num_rounds $onboarding_ $n_ctx
-python main.py $dataset $model_name $num_attempts $temperature $save_dir $num_rounds $onboarding_ $n_ctx
+echo python src/main.py $dataset $model_name $num_attempts $temperature $save_dir $num_rounds $onboarding_ $n_ctx
+python src/main.py $dataset $model_name $num_attempts $temperature $save_dir $num_rounds $onboarding_ $n_ctx
